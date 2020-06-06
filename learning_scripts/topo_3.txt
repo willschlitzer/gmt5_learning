@@ -5,7 +5,7 @@ YELLOW="255/255/0"
 SOURCE="../refs/ETOPO5.grd"
 PSFILE="../learning_maps/topo_3.ps"
 CPTFILE="topo_schlitz2.cpt"
-gmt makecpt -Cglobe -T-10000/3500/100 > $CPTFILE
+gmt makecpt -Cglobe -T-6000/3500/10 > $CPTFILE
 # makecpt creates a color pallete for the file\
 # -C establishes a default color scale (default options found using "gmt makecpt" in the CLI)
 # -T establishes the min/max/increment for the values (in this case depth)
