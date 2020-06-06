@@ -1,0 +1,9 @@
+PROJ="-JC15c" 
+LIMS="-R50/170/-10/70"
+BLUE="50/100/255"
+DRY="255/200/175"
+PSFILE="../maps/asia.ps"
+# Sets variables
+# Variables can be called with "$"
+gmt pscoast $PROJ $LIMS -W0.5p -G$DRY -S$BLUE -N1/0.25p -Df -K > $PSFILE
+gmt psbasemap $PROJ $LIMS -Bxa10g10 -Bya5g5 -P -BWeSn -O >> $PSFILE
