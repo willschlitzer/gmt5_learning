@@ -1,0 +1,8 @@
+PROJ="-JM5i" 
+LIMS="-R-130/-60/20/55"
+BLUE="50/100/255"
+YELLOW="255/255/0"
+SOURCE="../refs/ETOPO5.grd"
+PSFILE="../maps/topo_1.ps"
+gmt grdimage $SOURCE $PROJ $LIMS -Ctopo > $PSFILE
+

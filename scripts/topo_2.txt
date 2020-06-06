@@ -1,0 +1,13 @@
+PROJ="-JM5i" 
+LIMS="-R-130/-60/20/55"
+BLUE="50/100/255"
+YELLOW="255/255/0"
+SOURCE="../refs/ETOPO5.grd"
+PSFILE="../maps/topo_2.ps"
+gmt makecpt -Cglobe -T-27000/3500/100 > topo_schlitz.cpt
+# makecpt creates a color pallete for the file\
+# -C establishes a default color scale (default options found using "gmt makecpt" in the CLI)
+# -T establishes the min/max/increment for the values (in this case depth)
+gmt grdimage $SOURCE $PROJ $LIMS -Ctopo_schlitz.cpt -K > $PSFILE
+gmt pscoast $PROJ $LIMS -Dl -W1p -N1/1p -K -O >> $PSFILE
+gmt psbasemap $PROJ $LIMS -Bxa10 -Bya10 -BWeSn -O >> $PSFILE

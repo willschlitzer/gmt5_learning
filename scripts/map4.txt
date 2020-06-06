@@ -1,0 +1,12 @@
+PROJ="-JM10c" 
+LIMS="-R80/110/0/35"
+BLUE="50/100/255"
+YELLOW="255/255/0"
+PSFILE="../maps/map4a.ps"
+# Sets variables
+# Variables can be called with "$"
+gmt pscoast $PROJ $LIMS -W0.5p -L87/3+c3+w500k+u -G$YELLOW -S$BLUE -N1/0.25p -Df -K > $PSFILE
+gmt psxy ../refs/eqs.xy $PROJ $LIMS -Sc0.15i -W0.25p -Ggreen -O -K >> $PSFILE
+# Plots x/y (lat/long) data from a .xy file
+# -Sc0.15i plots circles(indicated by "c") at size 0.15 inches (indicates by "i")
+gmt psbasemap $PROJ $LIMS -Bxa10g10 -Bya5g5 -P -BWesN -O >> $PSFILE
