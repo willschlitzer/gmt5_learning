@@ -1,6 +1,19 @@
-gmt pscoast -JM10c -R80/110/0/35 -W1p -L87/3+c3+w500k+u -G255/255/0 -S50/100/255 -K > ../maps/map2a.ps
+gmt pscoast -JM10c -R80/110/0/35 -W0.5p -L87/3+c3+w500k+u -G255/255/0 -S50/100/255 -N1/0.25p -Df -K > ../maps/map2a.ps
 # -JM10c -R80/110/0/35 has to be same parameters as the basemap command
-# -W0.5p indicates pen width
+# -W(number)p indicates pen width
+#
+# -L87/3+c3+w500k+u
+# -L indicates adding a scale
+# 87/3 is the lat/long on the map where the bar is plotted
+# c3 is the lattitude the distance is calculated at (in this case, 3 N)
+# w500k determines length of scale bar (500 of unit, k for kilometers)
+# u indicates that unuts are plotted on scale bar
+#
+# -G(R/G/B) is for plotting ground color with pscoast
+# -S(R/G/B) is for water
+# -N1/0.25p is draw political boundaries (N1 is for countries) and the pen width
+# -Df indicates full resolution for drawing
+# Other options for -D: h-high, i-intermediate (default), l-low, c-crude
 # -K indicates that more will be added
 gmt psbasemap -JM10c -R80/110/0/35 -Bxa10g10 -Bya5g5 -P -BWesN -O >> ../maps/map2a.ps
 # -O means that this layer is an overlay
