@@ -1,0 +1,8 @@
+gmt pscoast -JM10c -R80/110/0/35 -W1p -L87/3+c3+w500k+u -G255/255/0 -S50/100/255 -K > ../maps/map2a.ps
+# -JM10c -R80/110/0/35 has to be same parameters as the basemap command
+# -W0.5p indicates pen width
+# -K indicates that more will be added
+gmt psbasemap -JM10c -R80/110/0/35 -Bxa10g10 -Bya5g5 -P -BWesN -O >> ../maps/map2a.ps
+# -O means that this layer is an overlay
+# >> indicates a file will be appended instead of written
+

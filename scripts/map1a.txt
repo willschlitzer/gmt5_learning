@@ -1,0 +1,9 @@
+gmt psbasemap -JM10c -R80/110/0/35 -Bxa10g10 -Bya5g5 -P -BWesN > ../maps/map1a.ps
+# psbasemap indicates that its just creating a map
+# -J (specifies map projection) M (Mercator) 10c (10 centimeters)
+# -r (range) west/east/south/north
+# -Ba(annotation degrees)g(grid degrees)
+# Format above for setting different parameters on X and Y axes
+# -P sets orientation to portration mode
+# -BWesN puts annotations only on the West and North ends of the diagram
+
