@@ -1,15 +1,15 @@
-PROJ="-JM8i" 
+PROJ="-JM15i" 
 LIMS="-R-130/-60/20/55"
 BLUE="50/100/255"
 YELLOW="255/255/0"
 SOURCE="../refs/ETOPO5.grd"
 PSFILE="../learning_maps/topo_3.ps"
-CPTFILE="topo_schlitz2.cpt"
+CPTFILE="topo_schlitz3.cpt"
 gmt makecpt -Cglobe -T-6000/3500/10 > $CPTFILE
 # makecpt creates a color pallete for the file\
 # -C establishes a default color scale (default options found using "gmt makecpt" in the CLI)
 # -T establishes the min/max/increment for the values (in this case depth)
-gmt grdimage $SOURCE $PROJ $LIMS -C$CPTFILE -P -K > $PSFILE
-gmt psscale -D0/-1.5+w10/0.5+h -C$CPTFILE -Ba5000"Depth" -O -K >> $PSFILE
+gmt grdimage $SOURCE $PROJ $LIMS -C$CPTFILE -K > $PSFILE
 gmt pscoast $PROJ $LIMS -Dl -W1p -N1/1p -K -O >> $PSFILE
-gmt psbasemap $PROJ $LIMS -Bxa10 -Bya10 -BWeSn -O >> $PSFILE
+gmt psbasemap $PROJ $LIMS -Bxa10 -Bya10 -BWeSn -K -O >> $PSFILE
+gmt psscale -D0i/-.5i+w6i/0.25i+h -C$CPTFILE -Bg500a2000+l"Depth" -O >> $PSFILE
