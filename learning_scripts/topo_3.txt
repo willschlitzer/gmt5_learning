@@ -1,4 +1,4 @@
-PROJ="-JM15i" 
+PROJ="-JM6i" 
 LIMS="-R-130/-60/20/55"
 BLUE="50/100/255"
 YELLOW="255/255/0"
@@ -12,4 +12,5 @@ gmt makecpt -Cglobe -T-6000/3500/10 > $CPTFILE
 gmt grdimage $SOURCE $PROJ $LIMS -C$CPTFILE -K > $PSFILE
 gmt pscoast $PROJ $LIMS -Dl -W1p -N1/1p -K -O >> $PSFILE
 gmt psbasemap $PROJ $LIMS -Bxa10 -Bya10 -BWeSn -K -O >> $PSFILE
-gmt psscale -D0i/-.5i+w6i/0.25i+h -C$CPTFILE -Bg500a2000+l"Depth" -O >> $PSFILE
+gmt grdcontour $SOURCE $PROJ $LIMS -C1000 -A3000 -W1p -K -O >> $PSFILE
+gmt psscale -D0i/-.5i+w4i/0.25i+h -C$CPTFILE -Bg500a2000+l"Depth" -O >> $PSFILE

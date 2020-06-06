@@ -1,0 +1,16 @@
+PROJ="-JM6i" 
+LIMS="-R--93/-87/-2/2"
+BLUE="50/100/255"
+YELLOW="255/255/0"
+SOURCE="../grd_files/GMRTv3_7_20200606topo.grd"
+PSFILE="../maps/pinta.ps"
+CPTFILE="pinta.cpt"
+gmt makecpt -Cglobe -T-6000/3500/10 > $CPTFILE
+# makecpt creates a color pallete for the file\
+# -C establishes a default color scale (default options found using "gmt makecpt" in the CLI)
+# -T establishes the min/max/increment for the values (in this case depth)
+gmt grdimage $SOURCE $PROJ $LIMS -C$CPTFILE -K > $PSFILE
+gmt pscoast $PROJ $LIMS -Dl -W1p -N1/1p -K -O >> $PSFILE
+gmt psbasemap $PROJ $LIMS -Bxa10 -Bya10 -BWeSn -K -O >> $PSFILE
+gmt grdcontour $SOURCE $PROJ $LIMS -C1000 -A3000 -W1p -K -O >> $PSFILE
+gmt psscale -D0i/-.5i+w4i/0.25i+h -C$CPTFILE -Bg500a2000+l"Depth" -O >> $PSFILE
